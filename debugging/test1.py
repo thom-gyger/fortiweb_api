@@ -2,13 +2,10 @@ from pprint import pprint
 
 
 if __name__ == '__main__':
-    from dotenv import load_dotenv
 
-    load_dotenv()
+    from src.fortiweb_api.API import API
 
-    from packages.fortiweb_api.src.fortiweb_api.API import API
-
-    src_waf = API("10.83.113.100", api_version="v2.0", vdom="root")
+    src_waf = API("10.83.113.100", api_version="v2.0", vdom="root", username="admin", password="Swisscom123")
     policy = src_waf.get("server_policy")[0]
     print(policy)
 

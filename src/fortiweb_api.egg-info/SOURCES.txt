@@ -62,6 +62,7 @@ src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/server_policy/XmlClientCertific
 src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/server_policy/XmlClientCertificateGroup.py
 src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/server_policy/XmlClientCertificateGroupMemberItem.py
 src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/server_policy/XmlServerCertificate.py
+src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/system/Admin.py
 src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/system/CertificateLetsEncrypt.py
 src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/system/CertificateLetsEncryptSanItem.py
 src/fortiweb_api/dcs/fortinet/fortiweb/v2_0/cmdb/system/CertificateLocal.py

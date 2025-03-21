@@ -1,4 +1,4 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.4
 Name: fortiweb_api
 Version: 0.0.1
 Summary: load configuration data from fortiweb and stores the data in json either in a file or in a database
@@ -22,3 +22,4 @@ Requires-Dist: PyYAML==6.0.2
 Requires-Dist: ttp==0.9.5
 Requires-Dist: pandas
 Requires-Dist: openpyxl
+Dynamic: license-file
