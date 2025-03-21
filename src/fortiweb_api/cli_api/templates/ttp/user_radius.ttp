@@ -1,0 +1,7 @@
+  edit {{ username }}
+    set server {{ server_ip }}
+    set secret ENC {{ secret }}
+    set secondary-server {{ secondary_server_ip }}
+    set secondary-secret ENC {{ secondary_secret }}
+    set nas-ip {{ nas_ip }}
+    set auth-type {{ auth_type }}

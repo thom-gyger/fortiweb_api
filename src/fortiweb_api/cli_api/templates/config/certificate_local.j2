@@ -1,0 +1,5 @@
+config system certificate local
+  edit {{ item["cert_name"] }}
+    set certificate {{ item['cert']["data"] }}
+    set private-key {{ item['key']["data"] }}
+end

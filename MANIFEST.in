@@ -1,0 +1,4 @@
+include src/fortiweb_api/endpoints.yaml
+include src/fortiweb_api/api_versions.yaml
+include src/fortiweb_api/cli_api/endpoints.yaml
+recursive-include src/fortiweb_api/cli_api/templates *

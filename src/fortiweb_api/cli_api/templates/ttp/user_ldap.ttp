@@ -1,0 +1,13 @@
+  edit {{username}}
+    set server {{server_ip}}
+    set common-name-id {{cname_id}}
+    set distinguished-name {{dname_id}}
+    set bind-type {{bind_type}}
+    set ssl-connection {{ssl_connection}}
+    set protocol {{protocol}}
+    set ca-cert {{ca_cert}}
+    set username {{user_dn}}
+    set filter {{filter}}
+    set group_authentication {{group_authentication}}
+    set group_type {{group_type}}
+    set group_dn {{group_dn}}

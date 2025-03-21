@@ -1,0 +1,17 @@
+config user radius-user
+  edit {{ item["username"] }}
+    set server {{ item["server_ip"]  }}
+    set secret ENC {{ item["secret"] }}
+
+    {%- if item["secondary_server_ip"] is defined %}
+    set secondary-server {{ item["secondary_server_ip"] }}
+    set secondary-secret ENC {{ item["secondary_secret"] }}
+    {%- endif %}
+
+    {%- if item["nas_ip"] is defined %}
+    set nas-ip {{ item["nas_ip"] }}
+    {%- endif %}
+
+    set auth-type {{ item["auth_type"] }}
+  next
+end

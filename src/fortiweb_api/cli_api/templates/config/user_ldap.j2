@@ -1,0 +1,35 @@
+config user ldap-user
+  edit {{ item["username"] }}
+    set server {{ item["server_ip"]  }}
+    set common-name-id {{ item["cname_id"] }}
+    set distinguished-name {{ item["dname_id"] }}
+
+    {%- if item["bind_type"] is defined %}
+    set bind-type {{ item["bind_type"]  }}
+    {% endif -%}
+
+    set ssl-connection {{ item["ssl_connection"] }}
+
+    {%- if item["protocol"] is defined %}
+    set protocol {{ item["protocol"] }}
+    {% endif -%}
+
+    {%- if item["ca_cert"] is defined %}
+    set ca-cert {{ item["ca_cert"] }}
+    {%- endif %}
+
+    {%- if item["user_dn"] is defined %}
+    set username {{ item["user_dn"] }}
+    {%- endif %}
+
+    {%- if item["filter"] is defined %}
+    set filter {{ item["filter"] }}
+    {%- endif %}
+
+    {%- if item["group_authentication"] is defined %}
+    set group_authentication {{ item["group_authentication"] }}
+    set group_type {{ item["group_type"] }}
+    set group_dn {{ item["group_dn"] }}
+    {%- endif %}
+  next
+end

@@ -1,0 +1,16 @@
+<group>
+  edit {{ cert_name }}
+<group name="cert">
+    set certificate {{ data | _start_ | PHRASE }}
+{{ data | _line_ | joinmatches }}
+
+set private-key {{_end_}}
+</group>
+<group name="key">
+    set private-key {{ data | _start_ | PHRASE }}
+{{ data | _line_ | joinmatches }}
+
+  next{{_end_}}
+</group>
+
+</group>

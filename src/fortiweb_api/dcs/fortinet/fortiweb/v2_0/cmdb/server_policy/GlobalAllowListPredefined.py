@@ -1,0 +1,1 @@
+from GlobalAllowListCustom import GlobalAllowListCustom as GlobalAllowListPredefined

@@ -1,0 +1,30 @@
+default:
+  certificate_local:
+    command: "show system certificate local"
+    ttp_template: "certificate_local.ttp"
+    config_template: "certificate_local.j2"
+
+  xml_server_certificate:
+    command: "show system certificate xml-server-certificate"
+    ttp_template: "xml_server_certificate.ttp"
+    config_template: "xml_server_certificate.j2"
+
+  xml_client_certificate:
+    command: "show system certificate xml-client-certificate"
+    ttp_template: "xml_client_certificate.ttp"
+    config_template: "xml_client_certificate.j2"
+
+  user_local:
+    command: "show user local-user"
+    ttp_template: "user_local.ttp"
+    config_template: "user_local.j2"
+
+  user_ldap:
+    command: "show user ldap-user"
+    ttp_template: "user_ldap.ttp"
+    config_template: "user_ldap.j2"
+
+  user_radius:
+    command: "show user radius-user"
+    ttp_template: "user_radius.ttp"
+    config_template: "user_radius.j2"

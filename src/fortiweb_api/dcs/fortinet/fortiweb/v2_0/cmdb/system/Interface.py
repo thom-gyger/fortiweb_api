@@ -1,0 +1,1 @@
+from fortiweb_api.dcs.fortinet.generic.FortinetGenericInterface import Interface

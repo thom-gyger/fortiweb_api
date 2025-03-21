@@ -1,0 +1,7 @@
+**/.env
+**/.pkl
+.venv
+.idea
+.vscode
+**/__pycache__
+**/dist

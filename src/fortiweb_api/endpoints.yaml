@@ -1,0 +1,871 @@
+#generate the endpoints.yaml file based on classname in folder dcs/fortinet/fortiweb and subfolders.
+#each endpoint entry in yaml endpoint key should be a dict and have a name ( the dataclass name) and the URL for the fortiweb api endpoint.
+#for the URL, the file SotLoader.py in folder src can be used to get the URL for the endpoint.
+
+
+v2.0:
+  endpoints:
+    #SystemInfo (Monitor API)
+    fortiguard:
+      urn: "system/config.fortiguard"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Fortiguard.Fortiguard"
+    state:
+      urn: "system/state"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.State.State"
+    vdom:
+      urn: "system/status.adoms" # this EP takes interval=X as query param where X is seconds
+    status_monitor:
+        urn: "/system/status.monitor"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.StatusMonitor"
+    session_data_by_policy:
+        urn: "/fortiview/sessions.data_json?report_by=policies&sort_by=sessions"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SessionDataByPolicy"
+    global_resource:
+        urn: "/system/global-resource?vdom=global"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.GlobalResource"
+    system_resource:
+        urn: "/system/status.systemresource"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SystemResource"
+    system_status:
+        urn: "/system/status.systemstatus"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SystemStatus"
+
+    #general
+    interface:
+      urn: "cmdb/system/interface"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Interface.Interface"
+
+    vip:
+      urn: "cmdb/system/vip"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Vip.Vip"
+
+    admin:
+      urn: "cmdb/system/admin"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Admin.Admin"
+
+    certificate_local:
+        urn: "cmdb/system/certificate.local"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateLocal.CertificateLocal"
+
+    certificate_letsencrypt:
+      urn: "cmdb/system/certificate.letsencrypt"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateLetsEncrypt.CertificateLetsEncrypt"
+
+    certificate_letsencrypt_san_item:
+        urn: "cmdb/system/certificate.letsencrypt/san-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateLetsEncryptSanItem.CertificateLetsEncryptSanItem"
+
+
+    #server policies
+    server_policy:
+      urn: "cmdb/server-policy/policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPolicy.ServerPolicy"
+    server_policy_content_routing_item:
+        urn: "cmdb/server-policy/policy/http-content-routing-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPolicyContentRoutingItem.ServerPolicyContentRoutingItem"
+
+    virtual_server:
+      urn: "cmdb/server-policy/vserver"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.VirtualServer.VirtualServer"
+    virtual_server_vip_item:
+      urn: "cmdb/server-policy/vserver/vip-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.VirtualServerVipItem.VirtualServerVipItem"
+
+    server_pool:
+      urn: "cmdb/server-policy/server-pool"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPool.ServerPool"
+    server_pool_pserver_item:
+      urn: "cmdb/server-policy/server-pool/pserver-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPoolPserverItem.ServerPoolPserverItem"
+    server_pool_health_check:
+      urn: "cmdb/server-policy/health"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPoolHealthCheck.ServerPoolHealthCheck"
+    server_pool_health_check_item:
+      urn: "cmdb/server-policy/health/health-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPoolHealthCheckItem.ServerPoolHealthCheckItem"
+    server_pool_persistence:
+      urn: "cmdb/server-policy/persistence-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPoolPersistence.ServerPoolPersistence"
+
+
+    http_content_routing:
+      urn: "cmdb/server-policy/http-content-routing-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.HttpContentRouting.HttpContentRouting"
+    http_content_routing_match_items:
+      urn: "cmdb/server-policy/http-content-routing-policy/content-routing-match-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.HttpContentRoutingMatchItem.HttpContentRoutingMatchItem"
+
+    allow_host: #former http_protected_hostname
+      urn: "cmdb/server-policy/allow-hosts"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.AllowHosts.AllowHosts"
+    allow_host_item: #former http_protected_hostname_list
+      urn: "cmdb/server-policy/allow-hosts/host-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.AllowHostsItem.AllowHostsItem"
+
+    services_predefined:
+      urn: "cmdb/server-policy/service.predefined"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServicePredefined.ServicePredefined"
+    services_custom:
+      urn: "cmdb/server-policy/service.custom"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServiceCustom.ServiceCustom"
+
+    ssl_cyphers:
+      urn: "cmdb/server-policy/ssl-ciphers.predefined"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.SslCypherPredefined.SslCypherPredefined"
+    ssl_cyphers_custom:
+      urn: "cmdb/server-policy/ssl-ciphers.custom"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.SslCypherCustom.SslCypherCustom"
+
+    global_allow_list_custom:
+      urn: "cmdb/server-policy/pattern.custom-global-white-list-group"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.GlobalAllowListCustom.GlobalAllowListCustom"
+    global_allow_list_predefined:
+      urn: "cmdb/server-policy/pattern.predefined-global-white-list-group"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.GlobalAllowListPredefined.GlobalAllowListPredefined"
+
+    allow_list:
+      urn: "cmdb/server-policy/allow-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.AllowList.AllowList"
+    allow_list_item:
+      urn: "cmdb/server-policy/allow-list/allow-list-items"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.AllowListItem.AllowListItem"
+
+    data_type_custom:
+      urn: "cmdb/server-policy/pattern.custom-data-type"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.DataTypeCustom.DataTypeCustom"
+    data_type_predefined:
+      urn: "cmdb/server-policy/pattern.predefined-data-type"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.DataTypePredefined.DataTypePredefined"
+
+    ip_group:
+      urn: "cmdb/server-policy/ip-group"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.IpGroup.IpGroup"
+    ip_group_member:
+      urn: "cmdb/server-policy/ip-group/members"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.IpGroupMember.IpGroupMember"
+
+    xml_server_certificate:
+        urn: "cmdb/system/certificate.xml-server-certificate"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.XmlServerCertificate.XmlServerCertificate"
+
+    xml_client_certificate:
+      urn: "cmdb/system/certificate.xml-client-certificate"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.XmlClientCertificate.XmlClientCertificate"
+
+    xml_client_certificate_group:
+      urn: "cmdb/system/certificate.xml-client-certificate-group"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.XmlClientCertificateGroup.XmlClientCertificateGroup"
+    xml_client_certificate_group_member_item:
+        urn: "cmdb/system/certificate.xml-client-certificate-group/members"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.XmlClientCertificateGroupMemberItem.XmlClientCertificateGroupMemberItem"
+
+    acceleration_policy:
+      urn: "cmdb/server-policy/acceleration.policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.AccelerationPolicy.AccelerationPolicy"
+
+    acceleration_exception:
+        urn: "cmdb/server-policy/acceleration.exception"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.AccelerationException.AccelerationException"
+    acceleration_exception_item:
+        urn: "cmdb/server-policy/acceleration.exception/list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.AccelerationExceptionItem.AccelerationExceptionItem"
+
+    #Webprotection
+    webprotection_profile_inline:
+      urn: "cmdb/waf/web-protection-profile.inline-protection"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.WebProtectionProfileInline.WebProtectionProfileInline"
+
+    url_replacer_policy:
+      urn: "cmdb/waf/machine-learning.url-replacer-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlReplacerPolicy.UrlReplacerPolicy"
+    url_replacer_policy_rule_list:
+      urn: "cmdb/waf/machine-learning.url-replacer-policy/rule-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlReplacerPolicyRuleList.UrlReplacerPolicyRuleList"
+
+    url_replacer_rule:
+      urn: "cmdb/waf/machine-learning.url-replacer-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlReplacerRule.UrlReplacerRule"
+
+    x_forward:
+      urn: "cmdb/waf/x-forwarded-for"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XForward.XForward"
+    x_forward_ip_list:
+      urn: "cmdb/waf/x-forwarded-for/ip-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XForwardIp.XForwardIp"
+
+    signature:
+      urn: "cmdb/waf/signature"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.Signature.Signature"
+    signature_class_item:
+      urn: "cmdb/waf/signature/main_class_list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureClassItem.SignatureClassItem"
+    signature_disable_item:
+        urn: "cmdb/waf/signature/signature_disable_list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureDisable.SignatureDisable"
+    signature_filter_item:
+      urn: "cmdb/waf/signature/filter_list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureFilter.SignatureFilter"
+    signature_dict:
+      urn: "/waf/signature.advanced.dictionaries"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureDict.SignatureDict"
+    signature_advanced_detail:
+      urn: "/waf/signature.advanced.details"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureAdvancedDetail.SignatureAdvancedDetail"
+    signature_advanced_status:
+        urn: "waf/signature.advanced.signature.status"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureAdvancedDetail.SignatureAdvancedStatus"
+    signature_advanced_fpm:
+        urn: "waf/signature.advanced.signature.falsepositivemitigation"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureAdvancedDetail.SignatureAdvancedFpm"
+    signature_advanced_alert_only:
+        urn: "waf/signature.advanced.signature.alertonly"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureAdvancedDetail.SignatureAdvancedAlertOnly"
+    signature_sig_detail:
+        urn: "waf/signature.sigdetail"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureSigDetail.SignatureSigDetail"
+
+    signature_group:
+      urn: "cmdb/waf/custom-protection-group"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureGroup.SignatureGroup"
+    signature_group_type_item:
+      urn: "cmdb/waf/custom-protection-group/type-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureGroupTypeItem.SignatureGroupTypeItem"
+
+    signature_group_rule:
+      urn: "cmdb/waf/custom-protection-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureGroupRule.SignatureGroupRule"
+    signature_group_rule_condition:
+      urn: "cmdb/waf/custom-protection-rule/meet-condition"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SignatureGroupRuleCondition.SignatureGroupRuleCondition"
+
+    custom_policy:
+      urn: "cmdb/waf/custom-access.policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomPolicy.CustomPolicy"
+    custom_policy_rule_item:
+      urn: "cmdb/waf/custom-access.policy/rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomPolicyRuleItem.CustomPolicyRuleItem"
+
+    custom_rule:
+      urn: "cmdb/waf/custom-access.rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRule.CustomRule"
+    custom_rule_filter_source_ip:
+      urn: "cmdb/waf/custom-access.rule/source-ip-filter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterSourceIp"
+    custom_rule_filter_geo:
+      urn: "cmdb/waf/custom-access.rule/geo-filter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterGeo"
+    custom_rule_filter_time_range:
+      urn: "cmdb/waf/custom-access.rule/time-range-filter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterTimeRange"
+    custom_rule_filter_method:
+      urn: "cmdb/waf/custom-access.rule/method"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterMethod"
+    custom_rule_filter_url:
+      urn: "cmdb/waf/custom-access.rule/url-filter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterUrl"
+    custom_rule_filter_http_header:
+      urn: "cmdb/waf/custom-access.rule/http-header-filter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterHttpHeader"
+    custom_rule_filter_parameter:
+      urn: "cmdb/waf/custom-access.rule/parameter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterParameter"
+    custom_rule_filter_user:
+      urn: "cmdb/waf/custom-access.rule/user-filter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterUser"
+    custom_rule_filter_access_limit:
+      urn: "cmdb/waf/custom-access.rule/access-limit-filter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterAccessLimit"
+    custom_rule_filter_http_transaction:
+      urn: "cmdb/waf/custom-access.rule/http-transaction"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterHttpTransaction"
+    custom_rule_filter_response_code:
+      urn: "cmdb/waf/custom-access.rule/response-code"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterResponseCode"
+    custom_rule_filter_content_type:
+      urn: "cmdb/waf/custom-access.rule/content-type"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterContentType"
+    custom_rule_filter_packet_interval:
+      urn: "cmdb/waf/custom-access.rule/packet-interval"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterPacketInterval"
+    custom_rule_filter_main_class:
+      urn: "cmdb/waf/custom-access.rule/main-class"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterMainClass"
+    custom_rule_filter_sub_class:
+      urn: "cmdb/waf/custom-access.rule/sub-class"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterSubClass"
+    custom_rule_filter_custom_signature:
+      urn: "cmdb/waf/custom-access.rule/custom-signature"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterCustomSignature"
+    custom_rule_filter_occurrence:
+      urn: "cmdb/waf/custom-access.rule/occurrence"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CustomRuleFilter.CustomRuleFilterOccurrence"
+
+    padding_oracle:
+      urn: "cmdb/waf/padding-oracle"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.PaddingOracle.PaddingOracle"
+    padding_oracle_url_item:
+      urn: "cmdb/waf/padding-oracle/protected-url-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.PaddingOracleUrlItem.PaddingOracleUrlItem"
+
+
+    csrf_protection:
+      urn: "cmdb/waf/csrf-protection"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CsrfProtection.CsrfProtection"
+    csrf_protection_url_item:
+      urn: "cmdb/waf/csrf-protection/csrf-url-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CsrfProtectionUrlItem.CsrfProtectionUrlItem"
+    csrf_protection_page_item:
+      urn: "cmdb/waf/csrf-protection/csrf-page-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CsrfProtectionPageItem.CsrfProtectionPageItem"
+
+    http_header_security:
+      urn: "cmdb/waf/http-header-security"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpHeaderSecurity.HttpHeaderSecurity"
+    http_header_security_item:
+      urn: "cmdb/waf/http-header-security/http-header-security-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpHeaderSecurityItem.HttpHeaderSecurityItem"
+
+    http_header_security_exception:
+      urn: "cmdb/waf/http-header-security-exception"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpHeaderSecurityException.HttpHeaderSecurityException"
+    http_header_security_exception_item:
+      urn: "cmdb/waf/http-header-security-exception/list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpHeaderSecurityExceptionItem.HttpHeaderSecurityExceptionItem"
+
+    mitb_protection_policy:
+      urn: "cmdb/waf/mitb-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MitbPolicy.MitbPolicy"
+    mitb_protection_policy_item:
+      urn: "cmdb/waf/mitb-policy/rule-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MitbPolicyItem.MitbPolicyItem"
+
+    mitb_rule:
+      urn: "cmdb/waf/mitb-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MitbRule.MitbRule"
+    mitb_rule_parameter_item:
+      urn: "cmdb/waf/mitb-rule/protected-parameter-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MitbRuleParameterItem.MitbRuleParameterItem"
+    mitb_rule_domain_item:
+      urn: "cmdb/waf/mitb-rule/allowed-external-domains-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MitbRuleDomainItem.MitbRuleDomainItem"
+
+    url_encryption_policy:
+      urn: "cmdb/waf/url-encryption.url-encryption-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlEncryptionPolicy.UrlEncryptionPolicy"
+    url_encryption_policy_item:
+      urn: "cmdb/waf/url-encryption.url-encryption-policy/rule-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlEncryptionPolicyItem.UrlEncryptionPolicyItem"
+
+
+    url_encryption_rule:
+      urn: "cmdb/waf/url-encryption.url-encryption-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlEncryptionRule.UrlEncryptionRule"
+    url_encryption_rule_url_item:
+      urn: "cmdb/waf/url-encryption.url-encryption-rule/url-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlEncryptionRuleUrlItem.UrlEncryptionRuleUrlItem"
+    url_encryption_rule_exception_item:
+      urn: "cmdb/waf/url-encryption.url-encryption-rule/exceptions"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlEncryptionRuleExceptionItem.UrlEncryptionRuleExceptionItem"
+
+    link_cloaking_policy:
+      urn: "cmdb/waf/link-cloaking.link-cloaking-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.LinkCloakingPolicy.LinkCloakingPolicy"
+    link_clkoaking_policy_rule_item:
+      urn: "cmdb/waf/link-cloaking.link-cloaking-policy/rule-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.LinkCloakingPolicyRuleItem.LinkCloakingPolicyRuleItem"
+
+    link_cloaking_rule:
+      urn: "cmdb/waf/link-cloaking.link-cloaking-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.LinkCloakingRule.LinkCloakingRule"
+    link_cloaking_rule_exception_item:
+      urn: "cmdb/waf/link-cloaking.link-cloaking-rule/exceptions"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.LinkCloakingRuleExceptionItem.LinkCloakingRuleExceptionItem"
+
+    syntax_based_detection:
+      urn: "cmdb/waf/syntax-based-attack-detection"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SyntaxBasedDetection.SyntaxBasedDetection"
+    syntax_based_detection_exception_item:
+      urn: "cmdb/waf/syntax-based-attack-detection/exception-element-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.SyntaxBasedDetectionExceptionItem.SyntaxBasedDetectionExceptionItem"
+
+    cookie_security:
+      urn: "cmdb/waf/cookie-security"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CookieSecurity.CookieSecurity"
+    cookie_security_exception_item:
+      urn: "cmdb/waf/cookie-security/cookie-security-exception-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CookieSecurityExceptionItem.CookieSecurityExceptionItem"
+
+    parameter_validation_policy:
+      urn: "cmdb/waf/parameter-validation-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ParameterValidationPolicy.ParameterValidationPolicy"
+    parameter_validation_policy_rule_item:
+      urn: "cmdb/waf/parameter-validation-rule/input-rule-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ParameterValidationPolicyRuleItem.ParameterValidationPolicyRuleItem"
+
+
+    parameter_input_rule:
+      urn: "cmdb/waf/input-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ParameterInputRule.ParameterInputRule"
+    parameter_input_rule_item:
+      urn: "cmdb/waf/input-rule/rule-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ParameterInputRuleItem.ParameterInputRuleItem"
+
+
+    hidden_field_protection_policy:
+      urn: "cmdb/waf/hidden-fields-protection"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HiddenFieldProtectionPolicy.HiddenFieldProtectionPolicy"
+    hidden_field_protection_policy_item:
+      urn: "cmdb/waf/hidden-fields-protection/hidden_fields_list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HiddenFieldProtectionPolicyItem.HiddenFieldProtectionPolicyItem"
+
+    hidden_field_rule:
+      urn: "cmdb/waf/hidden-fields-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HiddenFieldRule.HiddenFieldRule"
+    hidden_field_rule_name_item:
+      urn: "cmdb/waf/hidden-fields-rule/hidden-field-name"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HiddenFieldRuleNameItem.HiddenFieldRuleNameItem"
+
+    file_security_policy:
+      urn: "cmdb/waf/file-upload-restriction-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileSecurityPolicy.FileSecurityPolicy"
+    file_security_policy_rule_item:
+      urn: "cmdb/waf/file-upload-restriction-policy/rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileSecurityPolicyRuleItem.FileSecurityPolicyRuleItem"
+
+    file_security_rule:
+      urn: "cmdb/waf/file-upload-restriction-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileSecurityRule.FileSecurityRule"
+    file_security_rule_file_type_item:
+      urn: "cmdb/waf/file-upload-restriction-rule/file-types"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileSecurityRuleFileTypeItem.FileSecurityRuleFileTypeItem"
+    file_security_rule_custom_file_type_item:
+      urn: "cmdb/waf/file-upload-restriction-rule/custom-file-types"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileSecurityRuleCustomFileTypeItem.FileSecurityRuleCustomFileTypeItem"
+
+    file_security_file_type:
+      urn: "cmdb/waf/file-upload-custom-file-type"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileSecurityFileType.FileSecurityFileType"
+    file_security_file_type_match_item:
+      urn: "cmdb/waf/file-upload-custom-file-type/file-content-match-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileSecurityFileTypeMatchItem.FileSecurityFileTypeMatchItem"
+
+    web_shell_detection_policy:
+      urn: "cmdb/waf/webshell-detection-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.WebShellDetectionPolicy.WebShellDetectionPolicy"
+    web_shell_detection_policy_fuzzy_item:
+      urn: "cmdb/waf/webshell-detection-policy/fuzzy-disable-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.WebShellDetectionPolicyFuzzyItem.WebShellDetectionPolicyFuzzyItem"
+
+    fiel_exception_policy:
+      urn: "cmdb/waf/file-exception-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileExceptionPolicy.FileExceptionPolicy"
+    fiel_exception_policy_item:
+      urn: "cmdb/waf/file-exception-policy/exception-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.FileExceptionPolicyItem.FileExceptionPolicyItem"
+
+    http_constraint:
+      urn: "cmdb/waf/http-protocol-parameter-restriction"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpConstraint.HttpConstraint"
+
+    http_constraint_exception:
+      urn: "cmdb/waf/http-constraints-exceptions"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpConstraintException.HttpConstraintException"
+    http_constraint_exception_item:
+      urn: "cmdb/waf/http-constraints-exceptions/http_constraints-exception-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpConstraintExceptionItem.HttpConstraintExceptionItem"
+
+    allow_method_policy:
+      urn: "cmdb/waf/allow-method-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.AllowMethodPolicy.AllowMethodPolicy"
+
+    allow_method_exception:
+      urn: "cmdb/waf/allow-method-exceptions"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.AllowMethodException.AllowMethodException"
+    allow_method_exception_item:
+      urn: "cmdb/waf/allow-method-exceptions/allow-method-exception-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.AllowMethodExceptionItem.AllowMethodExceptionItem"
+
+    websocket_security_policy:
+      urn: "cmdb/waf/websocket-security.policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.WebsocketSecurityPolicy.WebsocketSecurityPolicy"
+    websocket_security_policy_rule_item:
+      urn: "cmdb/waf/websocket-security.policy/rule-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.WebsocketSecurityPolicyRuleItem.WebsocketSecurityPolicyRuleItem"
+
+    websocket_security_rule:
+      urn: "cmdb/waf/websocket-security.rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.WebsocketSecurityRule.WebsocketSecurityRule"
+    websocket_security_rul_allow_origin_item:
+      urn: "cmdb/waf/websocket-security.rule/allowed-origin-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.WebsocketSecurityRuleAllowOriginItem.WebsocketSecurityRuleAllowOriginItem"
+
+    grpc_security_policy:
+      urn: "cmdb/waf/grpc-security.policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GrpcSecurityPolicy.GrpcSecurityPolicy"
+    grpc_security_policy_rule_item:
+        urn: "cmdb/waf/grpc-security.policy/rule-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GrpcSecurityPolicyRuleItem.GrpcSecurityPolicyRuleItem"
+
+    grpc_security_rule:
+      urn: "cmdb/waf/grpc-security.rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GrpcSecurityRule.GrpcSecurityRule"
+
+    grpc_idl_file:
+      urn: "cmdb/waf/grpc-idl.file"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GrpcIdlFile.GrpcIdlFile"
+    grpc_idl_file_upload:
+      urn: "waf/grpc.idlfile"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GrpcIdlFile.GrpcIdlFile"
+
+    url_access_policy:
+      urn: "cmdb/waf/url-access.url-access-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlAccessPolicy.UrlAccessPolicy"
+    url_access_policy_rule_item:
+        urn: "cmdb/waf/url-access.url-access-policy/rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlAccessPolicyRuleItem.UrlAccessPolicyRuleItem"
+
+    url_access_rule:
+      urn: "cmdb/waf/url-access.url-access-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlAccessRule.UrlAccessRule"
+    url_access_rule_match_condition_item:
+      urn: "cmdb/waf/url-access.url-access-rule/match-condition"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlAccessRuleMatchConditionItem.UrlAccessRuleMatchConditionItem"
+
+    url_access_rules_parameter:
+      urn: "cmdb/waf/url-access.url-access-parameter"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlAccessParameter.UrlAccessParameter"
+    url_access_rules_parameter_item:
+      urn: "cmdb/waf/url-access.url-access-parameter/url-access-parameter-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlAccessParameterItem.UrlAccessParameterItem"
+
+    cors_protection_policy:
+      urn: "cmdb/waf/cors-protection-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsProtectionPolicy.CorsProtectionPolicy"
+    cors_protection_policy_rule_item:
+        urn: "cmdb/waf/cors-protection-policy/rule-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsProtectionPolicyRuleItem.CorsProtectionPolicyRuleItem"
+
+    cors_protection_rule:
+      urn: "cmdb/waf/cors-protection-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsProtectionRule.CorsProtectionRule"
+    cors_protection_rule_allowed_headers_item:
+      urn: "cmdb/waf/cors-protection-rule/allowed-headers-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsProtectionRuleAllowedHeadersItem.CorsProtectionRuleAllowedHeadersItem"
+    cors_protection_rule_allowed_methods_item:
+      urn: "cmdb/waf/cors-protection-rule/allowed-methods-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsProtectionRuleAllowedMethodsItem.CorsProtectionRuleAllowedMethodsItem"
+    cors_protection_rule_exposed_headers_item:
+      urn: "cmdb/waf/cors-protection-rule/exposed-headers-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsProtectionRuleExposedHeadersItem.CorsProtectionRuleExposedHeadersItem"
+
+    cors_allow_origins:
+      urn: "cmdb/waf/allowed-origins"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsAllowedOrigins.CorsAllowedOrigins"
+    cors_allow_origins_item:
+      urn: "cmdb/waf/allowed-origins/origin-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CorsAllowedOriginsItem.CorsAllowedOriginsItem"
+
+#ip protection
+    ip_list:
+      urn: "cmdb/waf/ip-list"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.IpList.IpList"
+    ip_list_member:
+      urn: "cmdb/waf/ip-list/members"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.IpListMember.IpListMember"
+
+    geo_ip:
+        urn: "cmdb/waf/geo-block-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GeoIp.GeoIp"
+    geo_ip_country_item:
+        urn: "cmdb/waf/geo-block-list/country-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GeoIpCountryItem.GeoIpCountryItem"
+
+    geo_ip_exception:
+        urn: "cmdb/waf/geo-ip-except"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GeoIpException.GeoIpException"
+    geo_ip_exception_member_item:
+        urn: "cmdb/waf/geo-ip-except/members"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.GeoIpExceptionMemberItem.GeoIpExceptionMemberItem"
+
+
+    #BotMitigation
+    bot_mitigation_policy:
+      urn: "cmdb/waf/bot-mitigate-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotMitigationPolicy.BotMitigationPolicy"
+
+    bot_biometric_based_detection:
+      urn: "cmdb/waf/biometrics-based-detection"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotBiometricBasedDetection.BotBiometricBasedDetection"
+    bot_biometric_based_detection_url_item:
+        urn: "cmdb/waf/biometrics-based-detection/url-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotBiometricBasedDetectionUrlItem.BotBiometricBasedDetectionUrlItem"
+
+    bot_threshold_based_detection:
+        urn: "cmdb/waf/threshold-based-detection.policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotThresholdBasedDetection.BotThresholdBasedDetection"
+
+    bot_deception:
+        urn: "cmdb/waf/bot-deception"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotDeception.BotDeception"
+    bot_deception_url_item:
+        urn: "cmdb/waf/bot-deception/url-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotDeceptionUrlItem.BotDeceptionUrlItem"
+
+    bot_known_bots:
+        urn: "cmdb/waf/known-bots"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotKnownBots.BotKnownBots"
+    bot_known_bots_known_good_bots_disable_item:
+        urn: "cmdb/waf/known-bots/known-good-bots-disable-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotKnownBotsKnownGoodBotsDisableItem.BotKnownBotsKnownGoodBotsDisableItem"
+    bot_known_bots_malicious_bots_disable_item:
+        urn: "cmdb/waf/known-bots/malicious-bot-disable-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotKnownBotsMaliciousBotsDisableItem.BotKnownBotsMaliciousBotsDisableItem"
+
+    bot_exception_policy:
+        urn: "cmdb/waf/bot-mitigation-exception"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotExceptionPolicy.BotExceptionPolicy"
+    bot_exception_policy_element_item:
+        urn: "cmdb/waf/bot-mitigation-exception/exception-element-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.BotExceptionPolicyElementItem.BotExceptionPolicyElementItem"
+
+# API Protection
+
+    xml_protection_policy:
+        urn: "cmdb/waf/xml-validation.policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionPolicy.XmlProtectionPolicy"
+    xml_protection_policy_rule_item:
+        urn: "cmdb/waf/xml-validation.policy/input-rule-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionPolicyRuleItem.XmlProtectionPolicyRuleItem"
+
+    xml_protection_rule:
+        urn: "cmdb/waf/xml-validation.rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionRule.XmlProtectionRule"
+
+    xml_protection_wssecurity_rule:
+        urn: "cmdb/waf/ws-security.rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionWsSecurityRule.XmlProtectionWsSecurityRule"
+    xml_protection_wssecurity_rule_element_item:
+        urn: "cmdb/waf/ws-security.rule/element-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionWsSecurityRuleElementItem.XmlProtectionWsSecurityRuleElementItem"
+    xml_protection_wssecurity_rule_namespace_item:
+        urn: "cmdb/waf/ws-security.rule/namespace-mapping"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionWsSecurityRuleNamespaceItem.XmlProtectionWsSecurityRuleNamespaceItem"
+
+    xml_protection_xml_schema:
+        urn: "cmdb/waf/xml-schema.file"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionXmlSchema.XmlProtectionXmlSchema"
+    xml_protection_xml_schema_upload:
+        urn: "waf/xmlprotection.xmlschemafile"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionXmlSchema.XmlProtectionXmlSchema"
+
+    xml_protection_wsdl:
+        urn: "cmdb/waf/xml-wsdl.file"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionWsdl.XmlProtectionWsdl"
+    xml_protection_wsdl_upload:
+        urn: "waf/xmlprotection.wsdlfile"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.XmlProtectionWsdl.XmlProtectionWsdl"
+
+    json_protection_policy:
+        urn: "cmdb/waf/json-validation.policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.JsonProtectionPolicy.JsonProtectionPolicy"
+    json_protection_policy_rule_item:
+        urn: "cmdb/waf/json-validation.policy/input-rule-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.JsonProtectionPolicyRuleItem.JsonProtectionPolicyRuleItem"
+
+    json_protection_rule:
+        urn: "cmdb/waf/json-validation.rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.JsonProtectionRule.JsonProtectionRule"
+
+    json_schema:
+        urn: "cmdb/waf/json-schema.file"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.JsonProtectionSchema.JsonProtectionSchema"
+    json_schema_upload:
+        urn: "waf/jsonprotection.jsonschemafile"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.JsonProtectionSchema.JsonProtectionSchema"
+
+    json_schema_group:
+        urn: "cmdb/waf/json-schema.group"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.JsonProtectionSchemaGroup.JsonProtectionSchemaGroup"
+    json_schema_group_item:
+        urn: "cmdb/waf/json-schema.group/members"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.JsonProtectionSchemaGroupItem.JsonProtectionSchemaGroupItem"
+
+    openapi_policy:
+        urn: "cmdb/waf/openapi-validation-policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.OpenApiPolicy.OpenApiPolicy"
+    openapi_policy_file_item:
+        urn: "cmdb/waf/openapi-validation-policy/schema-file"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.OpenApiPolicyFileItem.OpenApiPolicyFileItem"
+
+    openapi_file:
+        urn: "cmdb/waf/openapi-file"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.OpenApiFile.OpenApiFile"
+    openapi_file_upload:
+        urn: "waf/openapi.openapischemafile"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.OpenApiFile.OpenApiFile"
+
+
+    api_user:
+        urn: "cmdb/waf/api-users"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiUser.ApiUser"
+    api_user_http_referer_item:
+        urn: "cmdb/waf/api-users/http-referer-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiUserHttpRefererItem.ApiUserHttpRefererItem"
+    api_user_ip_access_list_item:
+        urn: "cmdb/waf/api-users/ip-access-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiUserIpAccessListItem.ApiUserIpAccessListItem"
+
+    api_user_group:
+        urn: "cmdb/waf/api-user-group"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiUserGroup.ApiUserGroup"
+    api_user_group_user_item:
+        urn: "cmdb/waf/api-user-group/user-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiUserGroupUserItem.ApiUserGroupUserItem"
+
+    api_policy:
+        urn: "cmdb/waf/api-policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiPolicy.ApiPolicy"
+    api_policy_rule_item:
+        urn: "cmdb/waf/api-policy/api-rule-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiPolicyRuleItem.ApiPolicyRuleItem"
+
+    api_policy_rule:
+        urn: "cmdb/waf/api-rules"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiPolicyRule.ApiPolicyRule"
+    api_policy_rule_attach_http_header_item:
+        urn: "cmdb/waf/api-rules/attach-http-header"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiPolicyRuleAttachHttpHeaderItem.ApiPolicyRuleAttachHttpHeaderItem"
+    api_policy_rule_match_url_prefixes_item:
+        urn: "cmdb/waf/api-rules/match-url-prefixes"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiPolicyRuleMatchUrlPrefixesItem.ApiPolicyRuleMatchUrlPrefixesItem"
+    api_policy_rule_sub_url_setting_item:
+        urn: "cmdb/waf/api-rules/sub-url-setting"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.ApiPolicyRuleSubUrlSettingItem.ApiPolicyRuleSubUrlSettingItem"
+
+    mobile_api_protection_policy:
+        urn: "cmdb/waf/mobile-api-protection.mobile-api-protection-policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MobileApiProtectionPolicy.MobileApiProtectionPolicy"
+    mobile_api_protection_policy_rule_item:
+        urn: "cmdb/waf/mobile-api-protection.mobile-api-protection-policy/rule-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MobileApiProtectionPolicyRuleItem.MobileApiProtectionPolicyRuleItem"
+
+    mobile_api_protection_rule:
+        urn: "cmdb/waf/mobile-api-protection.mobile-api-protection-rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MobileApiProtectionRule.MobileApiProtectionRule"
+    mobile_api_protection_rule_url_item:
+        urn: "cmdb/waf/mobile-api-protection.mobile-api-protection-rule/url-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.MobileApiProtectionRuleUrlItem.MobileApiProtectionRuleUrlItem"
+
+# dDos
+
+    ddos_policy:
+        urn: "cmdb/waf/application-layer-dos-prevention"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.DdosPolicy.DdosPolicy"
+
+    ddos_http_access_limit:
+        urn: "cmdb/waf/layer4-access-limit-rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.DdosHttpAccessLimit.DdosHttpAccessLimit"
+
+    ddos_tcp_flood_prevention:
+        urn: "cmdb/waf/layer4-connection-flood-check-rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.DdosTcpFloodPrevention.DdosTcpFloodPrevention"
+
+    ddos_http_flood_prevention:
+        urn: "cmdb/waf/http-request-flood-prevention-rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.DdosHttpFloodPrevention.DdosHttpFloodPrevention"
+
+    ddos_malicious_ip:
+        urn: "cmdb/waf/http-connection-flood-check-rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.DdosMaliciousIp.DdosMaliciousIp"
+
+#application delivery
+
+    url_rewriting_policy:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingPolicy.UrlRewritingPolicy"
+    url_rewriting_policy_rule_item:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-policy/rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingPolicyRuleItem.UrlRewritingPolicyRuleItem"
+
+    url_rewriting_rule:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-rule"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingRule.UrlRewritingRule"
+    url_rewriting_rule_header_insert_item:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-rule/header-insert"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingRuleHeaderInsertItem.UrlRewritingRuleHeaderInsertItem"
+    url_rewriting_rule_header_removal_item:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-rule/header-removal"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingRuleHeaderRemovalItem.UrlRewritingRuleHeaderRemovalItem"
+    url_rewriting_rule_response_header_insert_item:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-rule/response-header-insert"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingRuleResponseHeaderInsertItem.UrlRewritingRuleResponseHeaderInsertItem"
+    url_rewriting_rule_response_header_removal_item:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-rule/response-header-removal"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingRuleResponseHeaderRemovalItem.UrlRewritingRuleResponseHeaderRemovalItem"
+    url_rewriting_rule_match_condition_item:
+      urn: "cmdb/waf/url-rewrite.url-rewrite-rule/match-condition"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UrlRewritingRuleMatchConditionItem.UrlRewritingRuleMatchConditionItem"
+
+    http_auth_policy:
+        urn: "cmdb/waf/http-authen.http-authen-policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpAuthPolicy.HttpAuthPolicy"
+    http_auth_policy_rule_item:
+        urn: "cmdb/waf/http-authen.http-authen-policy/rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpAuthPolicyRuleItem.HttpAuthPolicyRuleItem"
+
+    http_auth_rule:
+        urn: "cmdb/waf/http-authen.http-authen-rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpAuthRule.HttpAuthRule"
+    http_auth_rule_item:
+        urn: "cmdb/waf/http-authen.http-authen-rule/rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.HttpAuthRuleItem.HttpAuthRuleItem"
+
+    compression_policy:
+        urn: "cmdb/waf/file-compress-rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CompressionPolicy.CompressionPolicy"
+    compression_policy_content_item:
+        urn: "cmdb/waf/file-compress-rule/content-types"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CompressionPolicyContentItem.CompressionPolicyContentItem"
+
+    compression_exclusion_url:
+        urn: "cmdb/waf/exclude-url"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CompressionExclusionUrl.CompressionExclusionUrl"
+    compression_exclusion_url_item:
+        urn: "cmdb/waf/exclude-url/exclude-rules"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.CompressionExclusionUrlItem.CompressionExclusionUrlItem"
+
+
+#User
+    user_local:
+      urn: "cmdb/user/local-user"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.UserLocal.UserLocal"
+
+    user_ldap:
+        urn: "cmdb/user/ldap-user"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.UserLdap.UserLdap"
+
+    user_radius:
+      urn: "cmdb/user/radius-user"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.UserRadius.UserRadius"
+
+    user_group:
+        urn: "cmdb/user/user-group"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.UserGroup.UserGroup"
+    user_group_member_item:
+        urn: "cmdb/user/user-group/members"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.UserGroupMemberItem.UserGroupMemberItem"
+
+#user tracking
+    user_tracking_policy:
+        urn: "cmdb/waf/user-tracking.policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UserTrackingPolicy.UserTrackingPolicy"
+    user_tracking_policy_rule_item:
+        urn: "cmdb/waf/user-tracking.policy/input-rule-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UserTrackingPolicyRuleItem.UserTrackingPolicyRuleItem"
+
+    user_tracking_rule:
+        urn: "cmdb/waf/user-tracking.rule"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UserTrackingRule.UserTrackingRule"
+    user_tracking_rule_condition_item:
+        urn: "cmdb/waf/user-tracking.rule/match-condition"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.waf.UserTrackingRuleConditionItem.UserTrackingRuleConditionItem"

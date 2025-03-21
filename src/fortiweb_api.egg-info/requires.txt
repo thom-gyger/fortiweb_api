@@ -1,0 +1,12 @@
+requests
+marshmallow==3.23.0
+marshmallow_dataclass==8.7.1
+PyYAML==6.0.2
+requests==2.32.3
+python-dotenv==1.0.1
+epdb==0.15.1
+netmiko==4.5.0
+PyYAML==6.0.2
+ttp==0.9.5
+pandas
+openpyxl

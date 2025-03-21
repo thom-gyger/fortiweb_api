@@ -1,0 +1,4 @@
+config system certificate xml-client-certificate
+  edit {{ item["cert_name"] }}
+    set certificate {{ item['cert']["data"] }}
+end

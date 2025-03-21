@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fortiweb_api"
+version = "0.0.1"
+authors = [
+  { name="thomas gyger", email="thomas.gyger@swisscom.com" },
+]
+description = "load configuration data from fortiweb and stores the data in json either in a file or in a database"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests",
+    "marshmallow==3.23.0",
+    "marshmallow_dataclass==8.7.1",
+    "PyYAML==6.0.2",
+    "requests==2.32.3",
+    "python-dotenv==1.0.1",
+    "epdb==0.15.1",
+    "netmiko==4.5.0",
+    "PyYAML==6.0.2",
+    "ttp==0.9.5",
+    "pandas",
+    "openpyxl"
+]
+
+[project.urls]
+Homepage = "tbd"
+Issues = "tbd"
+
+[tool.setuptools]
+include-package-data = true

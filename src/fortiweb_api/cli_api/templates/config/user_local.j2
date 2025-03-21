@@ -1,0 +1,6 @@
+config user local-user
+  edit {{ item["user"] }}
+    set username {{ item["username"] }}
+    set password ENC {{ item["password"] }}
+  next
+end
