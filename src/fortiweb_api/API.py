@@ -179,7 +179,7 @@ class API:
         except Exception as e:
             raise APIException._raise_error(e)
 
-    def put(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None):
+    def put(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, skip_schema=None):
         endpoint = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("urn")
         class_path = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("class_path")
         *module_path, class_name = class_path.split(".")
@@ -192,7 +192,10 @@ class API:
             json_data = json.dumps({"data": data})
             response = self.session.put(self.url, data=json_data, timeout=10)
             response.raise_for_status()  # Raise an exception for HTTP errors
-            enpoint = cls.Schema().load(response.json()["results"])
+            if skip_schema:
+                enpoint = response.json()["results"]
+            else:
+                enpoint = cls.Schema().load(response.json()["results"])
 
             return enpoint
 
