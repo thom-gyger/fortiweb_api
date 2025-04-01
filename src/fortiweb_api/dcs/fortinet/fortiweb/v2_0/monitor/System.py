@@ -169,6 +169,21 @@ class SystemResource(EndpointBase):
     Schema: ClassVar[Type[Schema]] = Baseschema
 
 @mdc(base_schema=Baseschema)
+class SystemTime(EndpointBase):
+    timeZone: int = field(metadata=EndpointBase.post_mark)
+    daylightSaving: int = field(metadata=EndpointBase.post_mark)
+    systemTime: str = field(metadata=EndpointBase.post_mark)
+    time: str = field(metadata=EndpointBase.post_mark)
+    mode: str = field(metadata=EndpointBase.post_mark)
+    
+    @mdc(base_schema=Baseschema)
+    class NtpServer(EndpointBase):
+        server: str = field(metadata=EndpointBase.post_mark)
+        interval: int = field(metadata=EndpointBase.post_mark)
+
+    Schema: ClassVar[Type[Schema]] = Baseschema
+
+@mdc(base_schema=Baseschema)
 class SystemStatus(EndpointBase):
 
     cluster: Optional[str]
