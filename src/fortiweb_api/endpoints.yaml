@@ -20,6 +20,9 @@ v2.0:
     session_data_by_policy:
         urn: "/fortiview/sessions.data_json?report_by=policies&sort_by=sessions"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SessionDataByPolicy"
+    global:
+        urn: "cmdb/system/global"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Global.Global"
     global_resource:
         urn: "/system/global-resource?vdom=global"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.GlobalResource"
