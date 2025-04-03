@@ -46,7 +46,10 @@ v2.0:
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.FortianalyzerPolicyList.FortianalyzerPolicyList"
     trigger_policy:
         urn: "cmdb/log/trigger-policy"
-        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.TriggerPolicy.TriggerPolicy"   
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.TriggerPolicy.TriggerPolicy"
+    fortianalyzer:
+        urn: "cmdb/log/forti-analyzer"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.Fortianalyzer.Fortianalyzer"
 
     #general
     interface:
@@ -854,6 +857,12 @@ v2.0:
 
 
 #User
+    admin_user_group:
+      urn: "/cmdb/user/admin-usergrp"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.AdminUserGroup.AdminUserGroup"
+    admin_user_group_member_item:
+      urn: "/cmdb/user/admin-usergrp/members"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.AdminUserGroupMemberItem.AdminUserGroupMemberItem"
     user_local:
       urn: "cmdb/user/local-user"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.user.UserLocal.UserLocal"

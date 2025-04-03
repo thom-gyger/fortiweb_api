@@ -6,7 +6,6 @@ from fortiweb_api.dcs.EndpointBase import EndpointBase
 from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 
-# rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
 class Global(EndpointBase):
     hostname: str = field(metadata=EndpointBase.post_mark)
@@ -18,13 +17,17 @@ class Global(EndpointBase):
     confsync_port: int = field(metadata=EndpointBase.post_mark)
     admin_sport: int = field(metadata=EndpointBase.post_mark)
     admin_tls_v10: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
-    admin_tls_v10_val: str = field(metadata=EndpointBase.post_mark)
-    admin_tls_v11: str = field(metadata=EndpointBase.post_mark)
-    admin_tls_v11_val: str = field(metadata=EndpointBase.post_mark)
+    admin_tls_v10_val: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    admin_tls_v11: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    admin_tls_v11_val: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
     admin_tls_v12: str = field(metadata=EndpointBase.post_mark)
     admin_tls_v12_val: str = field(metadata=EndpointBase.post_mark)
     admin_tls_v13: str = field(metadata=EndpointBase.post_mark)
     admin_tls_v13_val: str = field(metadata=EndpointBase.post_mark)
+    admin_ssl_custom_cipher: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    admin_ssl_custom_cipher_val: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    admin_tls13_custom_cipher: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    admin_tls13_custom_cipher_val: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
     cli_signature: str = field(metadata=EndpointBase.post_mark)
     cli_signature_val: str = field(metadata=EndpointBase.post_mark)
     dst: str = field(metadata=EndpointBase.post_mark)
@@ -86,23 +89,32 @@ class Global(EndpointBase):
     console_log_val: str = field(metadata=EndpointBase.post_mark)
     debug_get_config: str = field(metadata=EndpointBase.post_mark)
     debug_get_config_val: str = field(metadata=EndpointBase.post_mark)
-    shell_access: str = field(metadata=EndpointBase.post_mark)
-    shell_access_val: str = field(metadata=EndpointBase.post_mark)
-    shell_username: str = field(metadata=EndpointBase.post_mark)
-    shell_password: str = field(metadata=EndpointBase.post_mark)
-    shell_timeout: int = field(metadata=EndpointBase.post_mark)
-    shell_trusthostv4: str = field(metadata=EndpointBase.post_mark)
-    shell_trusthostv6: str = field(metadata=EndpointBase.post_mark)
+    shell_access: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    shell_access_val: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    shell_username: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    shell_password: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    shell_timeout: int = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    shell_trusthostv4: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    shell_trusthostv6: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
     admin_host_whitelist: str = field(metadata=EndpointBase.post_mark)
     contract_update: str = field(metadata=EndpointBase.post_mark)
+    advanced_bot_protection: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    advanced_bot_protection_val: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    advanced_bot_protection_query_timeout: int = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    advanced_bot_protection_portal_domain: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    advanced_bot_protection_js_attribute_enable: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    advanced_bot_protection_js_attribute_enable_val: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    advanced_bot_protection_js_attribute: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
     threat_analytics: str = field(metadata=EndpointBase.post_mark)
     threat_analytics_val: str = field(metadata=EndpointBase.post_mark)
     threat_analytics_authurl: str = field(metadata=EndpointBase.post_mark)
-    shell_history_size: int = field(metadata=EndpointBase.post_mark)
+    shell_history_size: int = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
+    webcache_concurrent_requests: int = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
     admin_forticloud_sso_login: str = field(metadata=EndpointBase.post_mark)
-    admin_forticloud_sso_login_val: str = field(metadata=EndpointBase.post_mark)'
+    admin_forticloud_sso_login_val: str = field(metadata=EndpointBase.post_mark)
+    sys_perf_log_interval: int = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
+    fortianalyzer_cloud_domain: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
     
-
     Schema: ClassVar[Type[Schema]] = Baseschema
 
     @classmethod

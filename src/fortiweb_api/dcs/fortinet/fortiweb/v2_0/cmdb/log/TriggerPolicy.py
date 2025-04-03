@@ -6,17 +6,24 @@ from fortiweb_api.dcs.EndpointBase import EndpointBase
 from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 
-# rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
 class TriggerPolicy(EndpointBase):
-    from .FortianalyzerPolicyList import FortianalyzerPolicyList
-    q_ref: Optional[int]
-    q_ref_string: Optional[str]
-    name: str = field(metadata=EndpointBase.post_mark | EndpointBase.key_mark)
-    sz_fortianalyzer_server_list: int = field(metadata=EndpointBase.post_mark)
-
-    fortianalyzer_server_list: Optional[List[FortianalyzerPolicyList]] = field(default_factory=list)
-
+    id: Optional[int] = field(metadata=EndpointBase.post_mark_optional | EndpointBase.key_mark)
+    q_ref: Optional[int] 
+    q_type: Optional[int] 
+    name: str = field(metadata=EndpointBase.post_mark)
+    email_policy: str = field(metadata=EndpointBase.post_mark)
+    email_policy_val: str = field(metadata=EndpointBase.post_mark)
+    syslog_policy: str = field(metadata=EndpointBase.post_mark)
+    syslog_policy_val: str = field(metadata=EndpointBase.post_mark)
+    analyzer_policy: str = field(metadata=EndpointBase.post_mark)
+    analyzer_policy_val: str = field(metadata=EndpointBase.post_mark)
+    siem_policy: str = field(metadata=EndpointBase.post_mark)
+    siem_policy_val: str = field(metadata=EndpointBase.post_mark)
+    application_name: str = field(metadata=EndpointBase.post_mark)
+    region: str = field(metadata=EndpointBase.post_mark)
+    vendor: str = field(metadata=EndpointBase.post_mark)
+    product: str = field(metadata=EndpointBase.post_mark)
     
     Schema: ClassVar[Type[Schema]] = Baseschema
 

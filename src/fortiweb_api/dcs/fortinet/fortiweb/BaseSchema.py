@@ -23,7 +23,7 @@ class Baseschema(Schema):
     @pre_load
     def replace_hyphens_with_underscores(self, data, **kwargs):
 
-        """Replace hyphens with underscores in keys and store transformations in context."""
+        """Replace hyphens with underscores in keys and store transformations in context. Includes other workarounds like tacacs+"""
 
         if not isinstance(data, dict):
             return data
@@ -33,6 +33,7 @@ class Baseschema(Schema):
 
         for key, value in data.items():
             new_key = key.replace('-', '_')
+            new_key = new_key.replace('tacacs+', 'tacacsplus')
             transformed_data[new_key] = value
             if new_key != key:  # Track only transformed keys
                 self.Meta.context['transformed_keys'][type(self)][new_key] = key
@@ -70,7 +71,7 @@ class Baseschema(Schema):
 
     @post_dump
     def replace_underscores_with_hyphens(self, data, **kwargs):
-        """Replace underscores with hyphens for keys based on pre_load transformations."""
+        """Replace underscores with hyphens for keys based on pre_load transformations. Includes other workarounds like tacacs+"""
         transformed_data = {}
         for key, value in data.items():
             # Check if this key was transformed and revert it
