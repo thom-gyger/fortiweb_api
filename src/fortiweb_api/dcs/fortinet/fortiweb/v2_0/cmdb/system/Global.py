@@ -1,5 +1,5 @@
 from typing import List, Optional, Dict, Any, ClassVar, Type
-from marshmallow import Schema
+from marshmallow import Schema, validates_schema
 from marshmallow_dataclass import dataclass as mdc
 from dataclasses import field
 from fortiweb_api.dcs.EndpointBase import EndpointBase
@@ -17,7 +17,7 @@ class Global(EndpointBase):
     confsync_enable_val: str = field(metadata=EndpointBase.post_mark)
     confsync_port: int = field(metadata=EndpointBase.post_mark)
     admin_sport: int = field(metadata=EndpointBase.post_mark)
-    admin_tls_v10: str = field(metadata=EndpointBase.post_mark)
+    admin_tls_v10: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
     admin_tls_v10_val: str = field(metadata=EndpointBase.post_mark)
     admin_tls_v11: str = field(metadata=EndpointBase.post_mark)
     admin_tls_v11_val: str = field(metadata=EndpointBase.post_mark)
@@ -100,7 +100,8 @@ class Global(EndpointBase):
     threat_analytics_authurl: str = field(metadata=EndpointBase.post_mark)
     shell_history_size: int = field(metadata=EndpointBase.post_mark)
     admin_forticloud_sso_login: str = field(metadata=EndpointBase.post_mark)
-    admin_forticloud_sso_login_val: str = field(metadata=EndpointBase.post_mark)
+    admin_forticloud_sso_login_val: str = field(metadata=EndpointBase.post_mark)'
+    
 
     Schema: ClassVar[Type[Schema]] = Baseschema
 

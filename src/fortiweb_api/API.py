@@ -191,17 +191,20 @@ class API:
         try:
             json_data = json.dumps({"data": data})
             response = self.session.put(self.url, data=json_data, timeout=10)
+            data = response.json()["results"]
             response.raise_for_status()  # Raise an exception for HTTP errors
             if skip_schema:
-                enpoint = response.json()["results"]
+                # Workaround for endpoints that do not return the object as a response to a put, example /system/maintenance.systemtime
+                enpoint = data
             else:
-                enpoint = cls.Schema().load(response.json()["results"])
+                data["firmware"] = self.firmware
+                enpoint = cls.Schema().load(data)
 
             return enpoint
 
         except Exception as e:
             raise APIException._raise_error(e)
-
+        
     def delete(self, endpoint_name, mkey=None, sub_mkey=None, kwargs=None) -> None:
         endpoint = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("urn")
         class_path = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("class_path")

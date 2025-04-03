@@ -8,7 +8,7 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 # rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
-class FortianalyzerPolicy(EndpointBase):
+class TriggerPolicy(EndpointBase):
     from .FortianalyzerPolicyList import FortianalyzerPolicyList
     q_ref: Optional[int]
     q_ref_string: Optional[str]
@@ -24,4 +24,3 @@ class FortianalyzerPolicy(EndpointBase):
     def get_post_json_template(cls) -> str:
         cls.post_required_fields = []
         return super().get_post_json_template()
-

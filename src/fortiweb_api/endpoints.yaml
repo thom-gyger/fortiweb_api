@@ -43,7 +43,10 @@ v2.0:
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.FortianalyzerPolicy.FortianalyzerPolicy"
     fortianalyzer_policy_list:
         urn: "/cmdb/log/fortianalyzer-policy/fortianalyzer-server-list"
-        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.FortianalyzerPolicyList.FortianalyzerPolicyList"     
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.FortianalyzerPolicyList.FortianalyzerPolicyList"
+    trigger_policy:
+        urn: "cmdb/log/trigger-policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.TriggerPolicy.TriggerPolicy"   
 
     #general
     interface:

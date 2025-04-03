@@ -61,7 +61,7 @@ class Baseschema(Schema):
                             data[field] = None
 
                     elif value.metadata.get("firmware").startswith("<"):
-                        if firmware > field_version:
+                        if firmware >= field_version:
                             value.allow_none = True
                             data[field] = None
 
