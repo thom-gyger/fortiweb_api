@@ -28,7 +28,7 @@ class FileSecurityRule(EndpointBase):
     json_key_for_filename: str = field(metadata=EndpointBase.post_mark)
     json_key_field: str = field(metadata=EndpointBase.post_mark)
     enable_base64_decode: str = field(metadata=EndpointBase.post_mark)
-    octet_stream_filename_headers: str = field(metadata=EndpointBase.post_mark)
+    octet_stream_filename_headers: str = field(metadata={"firmware":"<7.6"} | EndpointBase.post_mark)
     sz_file_types: int
     sz_custom_file_types: int
 

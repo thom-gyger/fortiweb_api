@@ -15,11 +15,7 @@ Requires-Dist: marshmallow==3.23.0
 Requires-Dist: marshmallow_dataclass==8.7.1
 Requires-Dist: PyYAML==6.0.2
 Requires-Dist: requests==2.32.3
-Requires-Dist: python-dotenv==1.0.1
-Requires-Dist: epdb==0.15.1
 Requires-Dist: netmiko==4.5.0
 Requires-Dist: PyYAML==6.0.2
 Requires-Dist: ttp==0.9.5
-Requires-Dist: pandas
-Requires-Dist: openpyxl
 Dynamic: license-file
