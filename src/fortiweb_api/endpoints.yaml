@@ -20,9 +20,6 @@ v2.0:
     session_data_by_policy:
         urn: "/fortiview/sessions.data_json?report_by=policies&sort_by=sessions"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SessionDataByPolicy"
-    global:
-        urn: "cmdb/system/global"
-        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Global.Global"
     global_resource:
         urn: "/system/global-resource?vdom=global"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.GlobalResource"
@@ -35,6 +32,7 @@ v2.0:
     system_time:
         urn: "/system/maintenance.systemtime"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SystemTime"
+
 
     # Log
 
@@ -50,6 +48,15 @@ v2.0:
     fortianalyzer:
         urn: "cmdb/log/forti-analyzer"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.Fortianalyzer.Fortianalyzer"
+    syslog_policy:
+        urn: "cmdb/log/syslog-policy"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.SyslogPolicy.SyslogPolicy"
+    syslog_policy_server_list:
+        urn: "cmdb/log/syslog-policy/syslog-server-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.SyslogPolicyServerList.SyslogPolicyServerList"
+    syslogd:
+        urn: "cmdb/log/syslogd"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.Syslogd.Syslogd"
 
     #general
     interface:
@@ -75,6 +82,12 @@ v2.0:
     certificate_letsencrypt_san_item:
         urn: "cmdb/system/certificate.letsencrypt/san-list"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateLetsEncryptSanItem.CertificateLetsEncryptSanItem"
+    global:
+        urn: "cmdb/system/global"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Global.Global"
+    snmp_sysinfo:
+        urn: "cmdb/system/snmp.sysinfo"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.SnmpSysinfo.SnmpSysinfo"
 
 
     #server policies
