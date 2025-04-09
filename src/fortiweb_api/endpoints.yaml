@@ -66,6 +66,12 @@ v2.0:
     vip:
       urn: "cmdb/system/vip"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Vip.Vip"
+    advanced:
+      urn: "cmdb/system/advanced"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Advanced.Advanced"
+    accprofile:
+      urn: "cmdb/system/accprofile"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Accprofile.Accprofile"
 
     admin:
       urn: "cmdb/system/admin"
@@ -82,12 +88,18 @@ v2.0:
     certificate_letsencrypt_san_item:
         urn: "cmdb/system/certificate.letsencrypt/san-list"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateLetsEncryptSanItem.CertificateLetsEncryptSanItem"
+    system_fortiguard:
+        urn: "cmdb/system/fortiguard"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Fortiguard.Fortiguard"    
     global:
         urn: "cmdb/system/global"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Global.Global"
     snmp_sysinfo:
         urn: "cmdb/system/snmp.sysinfo"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.SnmpSysinfo.SnmpSysinfo"
+    backup:
+        urn: "cmdb/system/backup"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Backup.Backup"
 
 
     #server policies

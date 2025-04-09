@@ -179,7 +179,7 @@ class API:
         except Exception as e:
             raise APIException._raise_error(e)
 
-    def put(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, skip_schema=None):
+    def put(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, skip_schema=None, data_workaround=None):
         endpoint = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("urn")
         class_path = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("class_path")
         *module_path, class_name = class_path.split(".")
@@ -189,7 +189,11 @@ class API:
         self.url = _build_url(self.base_url, endpoint, mkey, sub_mkey, kwargs)
         self.session.headers.update({"Authorization": self._gettoken(), "Content-Type": "application/json"})
         try:
-            json_data = json.dumps({"data": data})
+            if data_workaround:
+                # Workaround for endpoints that do not accept data encapsuled inside "data": {data}, example /system/config.fortiguard
+                json_data = json.dumps(data)
+            else:
+                json_data = json.dumps({"data": data})
             response = self.session.put(self.url, data=json_data, timeout=10)
             data = response.json()["results"]
             response.raise_for_status()  # Raise an exception for HTTP errors
