@@ -36,6 +36,18 @@ v2.0:
 
     # Log
 
+    attack_log:
+        urn: "/cmdb/log/attack-log"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.AttackLog.AttackLog"
+    traffic_log:
+        urn: "/cmdb/log/traffic-log"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.TrafficLog.TrafficLog"
+    event_log:
+        urn: "/cmdb/log/event-log"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.EventLog.EventLog"
+    sensitive:
+        urn: "/cmdb/log/sensitive"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.Sensitive.Sensitive"    
     fortianalyzer_policy:
         urn: "/cmdb/log/fortianalyzer-policy"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.log.FortianalyzerPolicy.FortianalyzerPolicy"
@@ -62,7 +74,6 @@ v2.0:
     interface:
       urn: "cmdb/system/interface"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Interface.Interface"
-
     vip:
       urn: "cmdb/system/vip"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Vip.Vip"
@@ -72,7 +83,12 @@ v2.0:
     accprofile:
       urn: "cmdb/system/accprofile"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Accprofile.Accprofile"
-
+    antivirus:
+      urn: "cmdb/system/antivirus"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Antivirus.Antivirus"
+    feature_visibility:
+      urn: "cmdb/system/feature-visibility"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.FeatureVisibility.FeatureVisibility"
     admin:
       urn: "cmdb/system/admin"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Admin.Admin"
@@ -88,18 +104,36 @@ v2.0:
     certificate_letsencrypt_san_item:
         urn: "cmdb/system/certificate.letsencrypt/san-list"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateLetsEncryptSanItem.CertificateLetsEncryptSanItem"
+    dns:
+        urn: "cmdb/system/dns"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Dns.Dns"
     system_fortiguard:
         urn: "cmdb/system/fortiguard"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Fortiguard.Fortiguard"    
     global:
         urn: "cmdb/system/global"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Global.Global"
+    snmp_community:
+        urn: "cmdb/system/snmp.community"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.SnmpCommunity.SnmpCommunity"
+    snmp_community_host_item:
+        urn: "cmdb/system/snmp.community/hosts"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.SnmpCommunityHostItem.SnmpCommunityHostItem"
     snmp_sysinfo:
         urn: "cmdb/system/snmp.sysinfo"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.SnmpSysinfo.SnmpSysinfo"
+    snmp_user:
+        urn: "cmdb/system/snmp.user"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.SnmpUser.SnmpUser"
+    snmp_user_host_item:
+        urn: "cmdb/system/snmp.user/hosts"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.SnmpUserHostItem.SnmpUserHostItem"
     backup:
         urn: "cmdb/system/backup"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Backup.Backup"
+    network_option:
+        urn: "cmdb/system/network-option"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.NetworkOption.NetworkOption"      
 
 
     #server policies
