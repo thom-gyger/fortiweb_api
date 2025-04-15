@@ -133,7 +133,16 @@ v2.0:
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Backup.Backup"
     network_option:
         urn: "cmdb/system/network-option"
-        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.NetworkOption.NetworkOption"      
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.NetworkOption.NetworkOption"
+    replacemsg_image:
+        urn: "cmdb/system/replacemsg-image"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.ReplacemsgImage.ReplacemsgImage"
+    replacemsg:
+        urn: "cmdb/system/replacemsg"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Replacemsg.Replacemsg"
+    replacemsg_page_list_item:
+        urn: "cmdb/system/replacemsg/page-list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.ReplacemsgPageListItem.ReplacemsgPageListItem"
 
 
     #server policies
