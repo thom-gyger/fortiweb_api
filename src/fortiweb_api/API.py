@@ -36,7 +36,7 @@ class APIException(Exception):
                 return APIException(mockresponse, e.response.status_code)
             except:
                 mockresponse = _MockResponse(f"{e}", f"RequestException")
-                return APIException(mockresponse, e.response.status_code)
+                return APIException(mockresponse, 500)
 
         elif isinstance(e, requests.exceptions.ConnectTimeout) or isinstance(e, requests.exceptions.ConnectionError):
             mockresponse = _MockResponse(f"unable to connect: {e}", "ConnectTimeout")
@@ -95,7 +95,11 @@ class API:
             self.base_url = f"{self.base_url}/api/v2.0/"
 
             # determ the firmware version of the waf
-            system_status = self.get("system_status")[0]
+            try:
+                system_status = self.get("system_status")[0]
+            except APIException:
+                return
+
             match = re.search(r"(\d+\.\d+)", system_status.firmwareVersion)
             if match:
                 self.firmware = float(match.group(1))
