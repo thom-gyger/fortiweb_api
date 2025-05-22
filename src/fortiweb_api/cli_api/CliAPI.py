@@ -38,7 +38,7 @@ class CliAPI:
     with open(file_path, 'r') as file:
         endpoint_data = yaml.safe_load(file)
 
-    def __init__(self, waf_ip: str, vdom=None, username=None, password=None):
+    def __init__(self, waf_ip: str, vdom=None, username=None, password=None, debug=None):
         self.waf_ip = waf_ip
 
         if username and password:
@@ -48,8 +48,10 @@ class CliAPI:
             self.username = os.getenv("FORTIWEB_USERNAME")
             self.password = os.getenv("FORTIWEB_PASSWORD")
         self.vdom = vdom
-        self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,}
-
+        if debug:
+            self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,"session_log": "cliapi_output_log.txt"}
+        else:
+            self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,}
     def get(self, endpoint_name:str, sub_element=None):
         endpoint = self.endpoint_data["default"].get(endpoint_name)
         command = endpoint.get("command")

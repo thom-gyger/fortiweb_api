@@ -9,7 +9,7 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 @mdc(base_schema=Baseschema)
 class Interface(EndpointBase):
-    id: int
+    id: Optional[int]
     can_view: int
     q_ref: int
     q_ref_string: Optional[str]

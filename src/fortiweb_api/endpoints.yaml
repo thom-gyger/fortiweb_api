@@ -33,6 +33,12 @@ v2.0:
         urn: "/system/maintenance.systemtime"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SystemTime"
 
+    # Router
+
+    static_route:
+      urn: "/cmdb/router/static"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.router.Static.Static"
+
 
     # Log
 
