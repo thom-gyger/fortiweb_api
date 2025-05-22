@@ -90,7 +90,6 @@ class CliAPI:
         expect_configmode_string = r".*\(.*\) \# "
         expect_normalmode_string = r".*\# "
 
-
         try:
             if self.vdom:
                 if self.vdom == "global":

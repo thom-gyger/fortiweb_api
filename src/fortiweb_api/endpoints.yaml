@@ -38,7 +38,9 @@ v2.0:
     static_route:
       urn: "/cmdb/router/static"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.router.Static.Static"
-
+    policy_route:
+      urn: "/cmdb/router/policy"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.router.Policy.Policy"
 
     # Log
 
