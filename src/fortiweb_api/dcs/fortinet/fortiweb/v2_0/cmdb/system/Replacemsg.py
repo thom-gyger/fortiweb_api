@@ -10,7 +10,7 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 @mdc(base_schema=Baseschema)
 class Replacemsg(EndpointBase):
     from .ReplacemsgPageListItem import ReplacemsgPageListItem
-    id: int
+    id: Optional[int]
     q_ref: int
     name: str = field(metadata=EndpointBase.post_mark | EndpointBase.key_mark)
     ajax_block_support: str = field(metadata=EndpointBase.post_mark)

@@ -8,12 +8,8 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 # rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
-class ReplacemsgPageListItem(EndpointBase):
-    seq: Optional[int]
-    id: str
+class ReplacemsgAdmin(EndpointBase):
     name: str = field(metadata=EndpointBase.post_mark | EndpointBase.key_mark)
-    code: int = field(metadata=EndpointBase.post_mark)
-    group: str = field(metadata=EndpointBase.post_mark)
     msg: str = field(metadata=EndpointBase.post_mark)
 
     Schema: ClassVar[Type[Schema]] = Baseschema
