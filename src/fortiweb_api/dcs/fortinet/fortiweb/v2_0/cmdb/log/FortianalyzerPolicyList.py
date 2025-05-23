@@ -10,7 +10,7 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 @mdc(base_schema=Baseschema)
 class FortianalyzerPolicyList(EndpointBase):
     id: str = field(metadata=EndpointBase.post_mark)
-    ip: str = field(metadata=EndpointBase.post_mark)
+    ip_address: str = field(metadata=EndpointBase.post_mark)
 
     
 

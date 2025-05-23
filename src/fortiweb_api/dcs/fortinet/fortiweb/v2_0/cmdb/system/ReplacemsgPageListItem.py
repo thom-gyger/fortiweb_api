@@ -9,7 +9,7 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 # rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
 class ReplacemsgPageListItem(EndpointBase):
-    seq: int
+    seq: Optional[int]
     id: str
     name: str = field(metadata=EndpointBase.post_mark | EndpointBase.key_mark)
     code: int = field(metadata=EndpointBase.post_mark)
