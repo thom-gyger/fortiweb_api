@@ -8,14 +8,9 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 # rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
-class Replacemsg(EndpointBase):
-    from .ReplacemsgPageListItem import ReplacemsgPageListItem
-    id: Optional[int]
-    q_ref: int
+class ReplacemsgAdmin(EndpointBase):
     name: str = field(metadata=EndpointBase.post_mark | EndpointBase.key_mark)
-    ajax_block_support: str = field(metadata=EndpointBase.post_mark)
-    sz_page_list: int = field(metadata=EndpointBase.post_mark)
-    page_list: Optional[List[ReplacemsgPageListItem]] = field(default_factory=list)
+    msg: str = field(metadata=EndpointBase.post_mark)
 
     Schema: ClassVar[Type[Schema]] = Baseschema
 

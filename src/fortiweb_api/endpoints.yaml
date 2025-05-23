@@ -142,6 +142,9 @@ v2.0:
     network_option:
         urn: "cmdb/system/network-option"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.NetworkOption.NetworkOption"
+    replacemsg_admin:
+        urn: "cmdb/system/replacemsg-admin"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.ReplacemsgAdmin.ReplacemsgAdmin"
     replacemsg_image:
         urn: "cmdb/system/replacemsg-image"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.ReplacemsgImage.ReplacemsgImage"
