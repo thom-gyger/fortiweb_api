@@ -7,3 +7,4 @@
 **/dist
 **/debugging
 *.egg-info
+!playground

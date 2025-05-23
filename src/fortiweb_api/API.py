@@ -156,7 +156,7 @@ class API:
             traceback.print_exc()
             raise APIException._raise_error(e)
 
-    def post(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, isfile=False):
+    def post(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, isfile=False, files=None):
         endpoint = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("urn")
         class_path = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("class_path")
         *module_path, class_name = class_path.split(".")
@@ -172,12 +172,17 @@ class API:
                 response = self.session.post(self.url, data=json_data, timeout=10)
                 response.raise_for_status()  # Raise an exception for HTTP errors
                 data = response.json()["results"]
+                data["firmware"] = self.firmware
                 endpoint_obj = cls.Schema().load(data)
                 return endpoint_obj
             else:
                 if "Content-Type" in self.session.headers:
                     del self.session.headers["Content-Type"]
-                response = self.session.post(self.url, files=data, timeout=10)
+                if files:
+
+                    response = self.session.post(self.url, files=files, data=data, timeout=10)
+                else:
+                    response = self.session.post(self.url, files=data, timeout=10)
                 response.raise_for_status()
 
         except Exception as e:
