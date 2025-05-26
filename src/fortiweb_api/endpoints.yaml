@@ -187,6 +187,14 @@ v2.0:
       urn: "cmdb/server-policy/persistence-policy"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.ServerPoolPersistence.ServerPoolPersistence"
 
+    policy_scripting:
+      urn: "cmdb/server-policy/scripting"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.PolicyScripting.PolicyScripting"
+    policy_scripting_text:
+      urn: "policy/policy.scripting.text
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitoring.policy.PolicyScriptingText.PolicyScriptingText"
+
+
 
     http_content_routing:
       urn: "cmdb/server-policy/http-content-routing-policy"
