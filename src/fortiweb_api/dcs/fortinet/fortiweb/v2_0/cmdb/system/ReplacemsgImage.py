@@ -9,7 +9,6 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 # rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
 class ReplacemsgImage(EndpointBase):
-    id: int
     q_ref: int
     name: str = field(metadata=EndpointBase.post_mark | EndpointBase.key_mark)
     image_type: str = field(metadata=EndpointBase.post_mark)
