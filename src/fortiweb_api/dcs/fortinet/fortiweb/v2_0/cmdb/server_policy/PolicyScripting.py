@@ -9,7 +9,7 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 @mdc(base_schema=Baseschema)
 class PolicyScripting(EndpointBase):
-    text: str = field(metadata=EndpointBase.post_mark_optional | EndpointBase.key_mark)
+    name: str = field(metadata=EndpointBase.post_mark_optional | EndpointBase.key_mark)
     scripting_name:str = field(metadata=EndpointBase.post_mark_optional)
 
     Schema: ClassVar[Type[Schema]] = Baseschema
