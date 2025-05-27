@@ -191,7 +191,7 @@ v2.0:
       urn: "cmdb/server-policy/scripting"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.server_policy.PolicyScripting.PolicyScripting"
     policy_scripting_text:
-      urn: "policy/policy.scripting.text
+      urn: "policy/policy.scripting.text"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitoring.policy.PolicyScriptingText.PolicyScriptingText"
 
 
