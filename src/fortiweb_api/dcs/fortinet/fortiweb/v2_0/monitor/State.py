@@ -82,12 +82,12 @@ class Config:
     CONFIG_GUI_NO: str
     HAVE_LOGDISK_EXT4: int
     HAVE_HA: int
-    HAVE_VIRT: int
-    HAVE_VIRT_VM: int
+    HAVE_VIRT: Optional[int]
+    HAVE_VIRT_VM: Optional[int]
     HAVE_VLAN: int
     HAVE_VDOM: int
-    HAVE_LICFILE: int
-    CONFIG_SYSTEM_FWB_VM: int
+    HAVE_LICFILE: Optional[int]
+    CONFIG_SYSTEM_FWB_VM: Optional[int]
 
     Schema: ClassVar[Type[Schema]] = Baseschema
 
