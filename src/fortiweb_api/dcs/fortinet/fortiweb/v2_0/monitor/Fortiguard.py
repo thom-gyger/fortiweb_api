@@ -20,8 +20,8 @@ class Registration:
 class SecurityService:
     expired: str
     is_valid: bool
-    expired_text: str
-    expired_url: str
+    expired_text: Optional[str]
+    expired_url: Optional[str]
     lastUpdateTime: str
     lastUpdateMethod: str
     update_url: str
@@ -36,8 +36,8 @@ class SecurityService:
 class AntivirusService:
     expired: str
     is_valid: bool
-    anti_expired_text: str
-    anti_expired_url: str
+    anti_expired_text: Optional[str]
+    anti_expired_url: Optional[str]
     lastUpdateTime: str
     lastUpdateMethod: str
     engineLastUpdateTime: str
@@ -55,8 +55,8 @@ class AntivirusService:
 class ReputationService:
     expired: str
     is_valid: bool
-    reputation_expired_text: str
-    reputation_expired_url: str
+    reputation_expired_text: Optional[str]
+    reputation_expired_url: Optional[str]
     lastUpdateTime: str
     lastUpdateMethod: str
     reputation_update_url: str
@@ -70,8 +70,8 @@ class ReputationService:
 class CredentialStuffingDefense:
     expired: str
     is_valid: bool
-    expired_text: str
-    expired_url: str
+    expired_text: Optional[str]
+    expired_url: Optional[str]
     lastUpdateTime: str
     lastUpdateMethod: str
     databaseVersion: str
@@ -83,8 +83,8 @@ class CredentialStuffingDefense:
 class SbclService:
     expired: str
     is_valid: bool
-    expired_text: str
-    expired_url: str
+    expired_text: Optional[str]
+    expired_url: Optional[str]
     lastUpdateTime: str
     lastUpdateMethod: str
     label_key: str
