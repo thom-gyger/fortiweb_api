@@ -3,6 +3,7 @@ import yaml
 from ttp import ttp
 from jinja2 import Environment, FileSystemLoader
 from netmiko import ConnectHandler
+import re
 
 
 class Helpers:
@@ -39,7 +40,7 @@ class CliAPI:
         endpoint_data = yaml.safe_load(file)
 
     def __init__(self, waf_ip: str, vdom=None, username=None, password=None, debug=None):
-        self.waf_ip = waf_ip
+        self.waf_ip = re.sub(r":\d+$", "", waf_ip)
 
         if username and password:
             self.username = username
