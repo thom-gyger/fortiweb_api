@@ -152,8 +152,6 @@ class API:
             return object_list
 
         except Exception as e:
-            import traceback
-            traceback.print_exc()
             raise APIException._raise_error(e)
 
     def post(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, isfile=False, files=None):
