@@ -14,6 +14,9 @@ v2.0:
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.State.State"
     vdom:
       urn: "system/status.adoms" # this EP takes interval=X as query param where X is seconds
+    adom:
+      urn: "system/status.adoms" # same as vdom but normal EP
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Vdom.Vdoms"
     status_monitor:
         urn: "/system/status.monitor"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.StatusMonitor"
