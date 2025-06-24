@@ -154,7 +154,7 @@ class API:
         except Exception as e:
             raise APIException._raise_error(e)
 
-    def post(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, isfile=False, files=None):
+    def post(self, endpoint_name, data, mkey=None, sub_mkey=None, kwargs=None, isfile=False, files=None, skip_schema=None, data_workaround=None):
         endpoint = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("urn")
         class_path = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("class_path")
         *module_path, class_name = class_path.split(".")
@@ -166,12 +166,20 @@ class API:
         try:
             if not isfile:
                 self.session.headers.update({"Content-Type": "application/json"})
-                json_data = json.dumps({"data": data})
+                if data_workaround:
+                # Workaround for endpoints that do not accept data encapsuled inside "data": {data}, example /system/replacemessage
+                    json_data = json.dumps(data)
+                else:
+                    json_data = json.dumps({"data": data})
                 response = self.session.post(self.url, data=json_data, timeout=10)
                 response.raise_for_status()  # Raise an exception for HTTP errors
                 data = response.json()["results"]
-                data["firmware"] = self.firmware
-                endpoint_obj = cls.Schema().load(data)
+                if skip_schema:
+                    # # Workaround for endpoints that do not return the object as a response to a put, example /system/replacemessage
+                    endpoint_obj = data
+                else:
+                    data["firmware"] = self.firmware
+                    endpoint_obj = cls.Schema().load(data)
                 return endpoint_obj
             else:
                 if "Content-Type" in self.session.headers:
@@ -206,12 +214,12 @@ class API:
             response.raise_for_status()  # Raise an exception for HTTP errors
             if skip_schema:
                 # Workaround for endpoints that do not return the object as a response to a put, example /system/maintenance.systemtime
-                enpoint = data
+                endpoint = data
             else:
                 data["firmware"] = self.firmware
-                enpoint = cls.Schema().load(data)
+                endpoint = cls.Schema().load(data)
 
-            return enpoint
+            return endpoint
 
         except Exception as e:
             raise APIException._raise_error(e)

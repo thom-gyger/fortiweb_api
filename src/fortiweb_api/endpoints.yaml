@@ -160,6 +160,12 @@ v2.0:
     replacemsg_page_list_item:
         urn: "cmdb/system/replacemsg/page-list"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.ReplacemsgPageListItem.ReplacemsgPageListItem"
+    # Workaround for Replacemsg bug. Can't post "group": "site-publish" to list item -> even if its the value of the predefined message.
+    # Call the replacemessage endpoint with just the Name and it will copy the Predfined Message Set. Then it's editable. 
+    replacemessage:
+        urn: "/system/config.replacemessage"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.system.Replacemessage.Replacemessage"
+
 
 
     #server policies
