@@ -39,7 +39,7 @@ class CliAPI:
     with open(file_path, 'r') as file:
         endpoint_data = yaml.safe_load(file)
 
-    def __init__(self, waf_ip: str, vdom=None, username=None, password=None, debug=None):
+    def __init__(self, waf_ip: str, vdom=None, username=None, password=None, fast_cli=None, debug=None):
         self.waf_ip = re.sub(r":\d+$", "", waf_ip)
 
         if username and password:
@@ -49,6 +49,9 @@ class CliAPI:
             self.username = os.getenv("FORTIWEB_USERNAME")
             self.password = os.getenv("FORTIWEB_PASSWORD")
         self.vdom = vdom
+        if fast_cli:
+            self.fast_cli = fast_cli
+            self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password, "fast_cli": True,}
         if debug:
             self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,"session_log": "cliapi_output_log.txt"}
         else:
@@ -103,6 +106,13 @@ class CliAPI:
                 endpoint = self.endpoint_data["default"].get(endpoint_name)
                 config = Helpers.render_data(data, endpoint.get("config_template"))
                 output = connection.send_config_set(config, exit_config_mode=False, enter_config_mode=False, terminator= expect_normalmode_string, cmd_verify=False, error_pattern="Command fail. CLI parsing error.")
+            elif self.fast_cli:
+                output = connection.send_config_set(data, exit_config_mode=False, enter_config_mode=False, terminator= expect_normalmode_string, cmd_verify=False, error_pattern="Command fail. CLI parsing error.",
+                                                    delay_factor=0.1,
+                                                    max_loops=50,
+                                                    strip_command=False,
+                                                    strip_prompt=False,
+                                                    read_timeout=10)
             else:
                 output = connection.send_config_set(data, exit_config_mode=False, enter_config_mode=False, terminator= expect_normalmode_string, cmd_verify=False, error_pattern="Command fail. CLI parsing error.")
 
