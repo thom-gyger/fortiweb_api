@@ -35,6 +35,9 @@ v2.0:
     system_time:
         urn: "/system/maintenance.systemtime"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.System.SystemTime"
+    local_backup:
+        urn: "/system/maintenance.localbackup.backup"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Maintenance.Backup"
 
     # Router
 
