@@ -120,7 +120,7 @@ class API:
         token = base64.b64encode(json_string.encode()).decode()
         return token
 
-    def get(self, endpoint_name, mkey=None, sub_mkey=None, kwargs=None) -> [EndpointBase]:
+    def get(self, endpoint_name, mkey=None, sub_mkey=None, kwargs=None, raw_output=None) -> [EndpointBase]:
         endpoint = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("urn")
         class_path = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("class_path")
         *module_path, class_name = class_path.split(".")
@@ -132,7 +132,8 @@ class API:
         try:
             response = self.session.get(self.url, timeout=10)
             response.raise_for_status()# Raise an exception for HTTP errors
-
+            if raw_output:
+                return response.content # for API endpoints that return Content-Type: application/raw
             if response.json().get("resutls"): # bug fix from fortiweb API rsponse
                 data = response.json()["resutls"]
             else:

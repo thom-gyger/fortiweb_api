@@ -38,6 +38,12 @@ v2.0:
     local_backup:
         urn: "/system/maintenance.localbackup.backup"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Maintenance.Backup"
+    local_backup_list:
+        urn: "/system/maintenance.localbackup.list"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Maintenance.BackupList"
+    local_backup_download:
+        urn: "/system/maintenance.localbackup.download"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Maintenance.BackupDownload"
 
     # Router
 
