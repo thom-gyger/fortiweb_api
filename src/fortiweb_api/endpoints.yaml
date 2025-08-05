@@ -119,6 +119,12 @@ v2.0:
     admin_certificate_local:
         urn: "cmdb/system/admin-certificate.local"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.AdminCertificateLocal.AdminCertificateLocal"
+    certificate_sni:
+        urn: "cmdb/system/certificate.sni"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateSNI.CertificateSNI"
+    certificate_sni_item:
+      urn: "cmdb/system/certificate.sni/members"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateSNIItem.CertificateSNIItem"
 
     certificate_letsencrypt:
       urn: "cmdb/system/certificate.letsencrypt"
