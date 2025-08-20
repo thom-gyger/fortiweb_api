@@ -52,6 +52,8 @@ class CliAPI:
         if fast_cli:
             self.fast_cli = fast_cli
             self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password, "fast_cli": True,}
+        else:
+            self.fast_cli = False
         if debug:
             self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,"session_log": "cliapi_output_log.txt"}
         else:
