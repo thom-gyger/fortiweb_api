@@ -4,7 +4,7 @@ import re
 import requests
 import yaml
 import importlib
-from typing import Type, cast, Optional, Dict, Any
+from typing import Type, cast, Optional, Dict, Any, List, TypeVar
 from fortiweb_api.dcs.EndpointBase import EndpointBase
 from marshmallow import ValidationError
 import urllib3
@@ -66,6 +66,7 @@ def _build_url(base_url: str, endpoint: str, mkey: Optional[str] = None, sub_mke
     query_string = "&".join(params)
     return f"{base_url}{endpoint}{'&' if '?' in endpoint else '?'}{query_string}" if query_string else f"{base_url}{endpoint}"
 
+T = TypeVar("T", bound=EndpointBase)
 class API:
     current_dir = os.path.dirname(__file__)
     file_path = os.path.join(current_dir, 'endpoints.yaml')
@@ -120,12 +121,12 @@ class API:
         token = base64.b64encode(json_string.encode()).decode()
         return token
 
-    def get(self, endpoint_name, mkey=None, sub_mkey=None, kwargs=None, raw_output=None) -> [EndpointBase]:
+    def get(self, endpoint_name, mkey=None, sub_mkey=None, kwargs=None, raw_output=None) -> List[T]:
         endpoint = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("urn")
         class_path = self.endpoint_data.get(self.api_version, {}).get("endpoints", {}).get(endpoint_name, {}).get("class_path")
         *module_path, class_name = class_path.split(".")
         module = importlib.import_module(".".join(module_path))
-        cls = cast(Type[EndpointBase], getattr(module, class_name))
+        cls = cast(Type[T], getattr(module, class_name))
 
         self.url = _build_url(self.base_url, endpoint, mkey, sub_mkey, kwargs)
         self.session.headers.update({"Authorization": self._gettoken()})
@@ -138,7 +139,7 @@ class API:
                 data = response.json()["resutls"]
             else:
                 data = response.json()["results"]
-            object_list = []
+            object_list : List[T]= []
 
             if isinstance(data, list):
                 for item in data:
