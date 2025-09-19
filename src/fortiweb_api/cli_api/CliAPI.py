@@ -55,7 +55,7 @@ class CliAPI:
         else:
             self.fast_cli = False
         if debug:
-            self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,"session_log": "cliapi_output_log.txt"}
+            self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,"session_log": "./cliapi_output_log.txt"}
         else:
             self.device = {"device_type": "terminal_server","host": self.waf_ip,"username": self.username,"password": self.password,}
     def get(self, endpoint_name:str, sub_element=None):

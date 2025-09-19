@@ -134,7 +134,7 @@ class API:
             response.raise_for_status()# Raise an exception for HTTP errors
             if raw_output:
                 return response.content # for API endpoints that return Content-Type: application/raw
-            if response.json().get("resutls"): # bug fix from fortiweb API rsponse
+            if response.json().get("resutls"): # bug fix from fortiweb API response
                 data = response.json()["resutls"]
             else:
                 data = response.json()["results"]
