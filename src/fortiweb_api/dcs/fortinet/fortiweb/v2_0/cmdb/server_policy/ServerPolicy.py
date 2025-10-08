@@ -38,7 +38,7 @@ class ServerPolicy(EndpointBase):
     send_buffers_number: int = field(metadata=EndpointBase.post_mark)
     reply_100_continue: str = field(metadata=EndpointBase.post_mark)
     forward_expect_100_continue: str = field(metadata=EndpointBase.post_mark)
-    transaction_based_persistence: str = field(metadata=EndpointBase.post_mark)
+    transaction_based_persistence: str = field(metadata={"firmware":">7.6"} | EndpointBase.post_mark)
     certificate_type: str = field(metadata=EndpointBase.post_mark)
     lets_certificate: str = field(metadata=EndpointBase.post_mark)
     certificate: str = field(metadata=EndpointBase.post_mark)
