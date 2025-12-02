@@ -16,6 +16,9 @@ class SignatureDict(EndpointBase):
     status: int = field(metadata=EndpointBase.post_mark)
     type: int = field(metadata=EndpointBase.post_mark)
 
+    # NEW: capture children from API
+    children: list = field(default_factory=list, metadata=EndpointBase.key_mark)
+
     Schema: ClassVar[Type[Schema]] = Baseschema
 
     @classmethod
