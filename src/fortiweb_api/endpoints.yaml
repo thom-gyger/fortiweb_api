@@ -123,7 +123,7 @@ v2.0:
         urn: "/system/certificate.local"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.system.CertificateLocalMonitor.CertificateLocalMonitor"
     certificate_verify:
-        urn: "cmdb/system/certificate.server-certificate-verify"
+        urn: "cmdb/system/certificate.verify"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.CertificateVerify.CertificateVerify"
     admin_certificate_local:
         urn: "cmdb/system/admin-certificate.local"
