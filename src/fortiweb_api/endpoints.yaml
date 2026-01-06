@@ -46,7 +46,7 @@ v2.0:
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Maintenance.BackupDownload"
     policystatus_detail:
         urn: "/policy/policystatus.detail"
-        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.policy.PolicyStatusDetail"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.policy.PolicyStatusDetail.PolicyStatusDetail"
     # Router
 
     static_route:
