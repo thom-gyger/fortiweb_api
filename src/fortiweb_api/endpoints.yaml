@@ -44,7 +44,9 @@ v2.0:
     local_backup_download:
         urn: "/system/maintenance.localbackup.download"
         class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.monitor.Maintenance.BackupDownload"
-
+    policystatus_detail:
+        urn: "/policy/policystatus.detail"
+        class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.policy.PolicyStatusDetail"
     # Router
 
     static_route:
