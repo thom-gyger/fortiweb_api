@@ -114,6 +114,9 @@ v2.0:
     admin:
       urn: "cmdb/system/admin"
       class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.Admin.Admin"
+    autoupdate_override:
+      urn: "cmdb/system/autoupdate.override"
+      class_path: "fortiweb_api.dcs.fortinet.fortiweb.v2_0.cmdb.system.AutoUpdateOverride.AutoUpdateOverride"
 
     certificate_local:
         urn: "cmdb/system/certificate.local"
