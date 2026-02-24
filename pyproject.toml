@@ -4,11 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fortiweb_api"
-version = "0.0.1"
+version = "0.1"
 authors = [
   { name="thomas gyger", email="thomas.gyger@swisscom.com" },
 ]
-description = "load configuration data from fortiweb and stores the data in json either in a file or in a database"
+description = "request Fortiweb rest API based in simple endpoint names."
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
@@ -28,8 +28,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "tbd"
-Issues = "tbd"
+Homepage = "none"
+Issues = "none"
 
 [tool.setuptools]
 include-package-data = true

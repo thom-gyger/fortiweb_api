@@ -14,12 +14,19 @@ class EndpointBase:
         }
         return json.dumps(json_friendly_annotations)
 
-    def serialize(self, all_fields=False) -> dict:
+    def serialize(self, all_fields=False, all_fields_nested=False) -> dict:
         if all_fields:
             filtered_data = {
                 key: getattr(self, key)
                 for key, field in self.Schema().fields.items()
                 if not isinstance(field, (self.Schema, Nested))  # Exclude Schema and Nested fields
+            }
+            return self.Schema().dump(filtered_data)
+        if all_fields_nested:
+            filtered_data = {
+                key: getattr(self, key)
+                for key, field in self.Schema().fields.items()
+                if not isinstance(field, (self.Schema))  # Exclude Schema
             }
             return self.Schema().dump(filtered_data)
         else:

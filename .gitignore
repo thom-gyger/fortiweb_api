@@ -9,3 +9,5 @@
 *.egg-info
 !playground
 src/fortiweb_api.egg-info/SOURCES.txt
+build/
+*.egg-info/
