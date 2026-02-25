@@ -28,8 +28,7 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "none"
-Issues = "none"
+Homepage = "https://github.com/thom-gyger/fortiweb_api.git"
 
 [tool.setuptools]
 include-package-data = true
