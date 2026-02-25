@@ -132,7 +132,7 @@ what if you now want to post the endpoint object (resceived from Fortiweb 7.6) t
 You first need, to add the desired attribute(s) to that Object:
 ```python
 setattr(ep_object_from_v7_6, "octet_stream_filename_headers", "your value")
-configured_object = Device_v7_4.post("file_security_rule", ep_object_from_v7_4.serialize())
+configured_object = Device_v7_4.post("file_security_rule", ep_object_from_v7_6.serialize())
 ```
 
 <u>File Uploading</u>
