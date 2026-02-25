@@ -81,7 +81,7 @@ key_field = bmp[0].key_field()
 key_field_value = gettattr(bmp[0], key_field)
 
 #apply the change
-changed_bmp = waf.put("bot_mitigation_policy", mkey=key_field_value) # this will return a list with the changed Endpoint
+changed_bmp = waf.put("bot_mitigation_policy", bmp[0].serialize(), mkey=key_field_value) # this will return a list with the changed Endpoint
 
 ```
 
@@ -94,7 +94,8 @@ waf.delete("bot_mitigation_policy", mkey="bmp_abc")
 ```
 
 **about endpointnames**
-in folder ```src/fortiweb_api``` you can view all the available endpoint names
+
+in file  `src/fortiweb_api/endpoints.yaml` you can view all the available endpoint names
 
 ```yaml
 server_policy: #<---- ep_name
