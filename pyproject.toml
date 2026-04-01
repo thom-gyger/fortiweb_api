@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "fortiweb_api"
-version = "0.2"
+version = "v0.2.0"
 authors = [
   { name="thomas gyger", email="thomas.gyger@swisscom.com" },
 ]
