@@ -8,7 +8,7 @@ from fortiweb_api.dcs.fortinet.fortiweb.BaseSchema import Baseschema
 
 # rewrite this code to use the marshmallow_dataclass
 @mdc(base_schema=Baseschema)
-class Backup(EndpointBase):
+class AutoUpdateOverride(EndpointBase):
     status: str = field(metadata=EndpointBase.post_mark | EndpointBase.key_mark)
     address: str = field(metadata=EndpointBase.post_mark)
     fail_over: str = field(metadata=EndpointBase.post_mark)
